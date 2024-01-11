@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-xs-0 col-sm-12 col-md-5" id="hide-on-mobile">
+    kasjhdfbkasdj
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-7">
+    <content class="main">
+      <section class="data">
+        <section class="graph">
+          <div class="total-value">
+            Total em contribuições <br />
+            R{{ retornoAPI.total | currency }}
+          </div>
+          <div class="card flex justify-content-center graph-card">
+            <p-chart
+              type="doughnut"
+              [data]="data"
+              [options]="options"
+            ></p-chart>
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="month-contribution">
+          <div class="card">
+            <div class="title">
+              <i class="pi pi-database"></i>
+              Contribuição mensal
+              <i class="pi pi-chevron-right"></i>
+            </div>
+            <div class="divider"></div>
+            <div class="content">
+              Valor da contribuição
+              <span>50</span>
+              <br />
+              Porcentagem do salário <span>5%</span>
+              <button type="submit" class="btn btn-secondary">
+                alterar contribuição
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="voluntary-contribution">
+          <div class="card">
+            <div class="title">
+              <i class="pi pi-database"></i>
+              Contribuição voluntária <i class="pi pi-chevron-right"></i>
+            </div>
+            <div class="divider"></div>
+            <div class="content">
+              Valor da contribuição
+              <span>50</span>
+              <button type="submit" class="btn btn-secondary">
+                alterar contribuição
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- (click)="submit()" -->
+        <button type="submit" class="btn btn-primary btn-access">
+          incluir contribuição
+        </button>
+      </section>
+    </content>
+  </div>
+</div>

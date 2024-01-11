@@ -1,0 +1,48 @@
+// @import "src/styles.less";
+.main {
+  display: flex;
+  margin: 16px 24px 32px 24px;
+
+  .graph {
+    text-align: center;
+
+    .graph-card {
+      border: none;
+    }
+  }
+
+  .card {
+    padding: 16px;
+    .title {
+      margin-bottom: 8px;
+      .pi-chevron-right {
+        float: right;
+        // color: @primary-color;
+      }
+    }
+  }
+
+  .divider {
+    border: 1px solid gray;
+  }
+  .section-divider {
+    border: 1px solid gray;
+    margin: 16px 0px;
+  }
+
+  section {
+    margin-bottom: 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  //   .main {
+  //     // margin: none;
+  //   }
+}
+
+@media screen and (min-width: 992px) {
+  .main {
+    margin: 64px 60px 64px 90px;
+  }
+}
