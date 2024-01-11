@@ -10,6 +10,9 @@ Node.js: Certifique-se de ter o Node.js instalado. Você pode baixá-lo em nodej
 Clone este repositório para o seu ambiente local usando o seguinte comando:
 git clone https://github.com/matheusmenali/quando.git
 
+Lembre-e de verificar se você está na branch "Master".
+Se nao estiver use o comando: git checkout master
+
 Navegue até o diretório do projeto:
 cd quando
 
