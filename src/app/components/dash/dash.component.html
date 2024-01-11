@@ -1,6 +1,8 @@
 <div class="row">
   <div class="navigation">
-    <i class="pi pi-arrow-left"><span>MEU PLANO</span> </i>
+    <i class="pi pi-arrow-left" (click)="redirect('Dash')"
+      ><span>MEU PLANO</span>
+    </i>
   </div>
   <p-divider></p-divider>
 
@@ -32,9 +34,10 @@
       <section class="data">
         <section class="graph">
           <div class="total-value">
-            Total em contribuições <br />
+            <span> Total em contribuições </span>
+            <br />
             <b>
-              <span class="value">{{
+              <span class="text-title">{{
                 retornoAPI.total | currency : "BRL"
               }}</span>
             </b>

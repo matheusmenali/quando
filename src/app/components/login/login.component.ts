@@ -36,10 +36,8 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    if (this.loginForm.valid) {
-      if (this.loginService.login()) {
-        this.router.navigate(['/dash']);
-      }
+    if (this.loginForm.valid && this.loginService.login()) {
+      this.router.navigate(['/dash']);
     }
   }
 

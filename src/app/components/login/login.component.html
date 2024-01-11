@@ -43,13 +43,14 @@
             type="submit"
             (click)="submit()"
             class="btn btn-primary btn-access"
+            [disabled]="!loginForm.valid"
           >
             Acessar
           </button>
 
           <div class="esqueceu-senha">
             Esqueceu a senha?
-            <a href="forgot-password.html">Acesse Aqui</a>
+            <a routerLink="/recurerar-senha">Acesse Aqui</a>
           </div>
           <span class="version"> Versão 0.01 </span>
         </section>

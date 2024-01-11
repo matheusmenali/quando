@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-dash',
@@ -10,33 +11,49 @@ export class DashComponent implements OnInit {
   data: any;
 
   options: any;
-  constructor(private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {}
 
-  retornoAPI = {
-    total: 1000,
-    valorContribuiaoMensal: 500,
-    porcentagemSalario: 5,
-    valorContribuiaoVoluntaria: 500,
-    menuPlano: [
-      { menu: 'Ver Extrato', icone: 'file-invoice-dollar' },
-      { menu: 'Contribuição Mensal', icone: 'envelope-open-dollar' },
-      { menu: 'Contribuição Extra', icone: 'sack-dollar' },
-      { menu: 'Documentos', icone: 'file-alt' },
-      { menu: 'Regime de Tributação', icone: 'user-chart' },
-      { menu: 'Solicitar Benefício', icone: 'comment-dollar' },
-      { menu: 'Extrato Regressivo', icone: 'file-chart-line' },
-      { menu: 'Informações', icone: 'info' },
-    ],
-  };
+  retornoAPI: any;
+  // retornoAPI = {
+  //   total: 1000,
+  //   valorContribuiaoMensal: 500,
+  //   porcentagemSalario: 5,
+  //   valorContribuiaoVoluntaria: 500,
+  //   valorGraficoContribuicaoMensal: 499999.99,
+  //   valorGraficoContribuicaoVoluntaria: 499999.99,
+  //   menuPlano: [
+  //     { menu: 'Ver Extrato', icone: 'file-invoice-dollar' },
+  //     { menu: 'Contribuição Mensal', icone: 'envelope-open-dollar' },
+  //     { menu: 'Contribuição Extra', icone: 'sack-dollar' },
+  //     { menu: 'Documentos', icone: 'file-alt' },
+  //     { menu: 'Regime de Tributação', icone: 'user-chart' },
+  //     { menu: 'Solicitar Benefício', icone: 'comment-dollar' },
+  //     { menu: 'Extrato Regressivo', icone: 'file-chart-line' },
+  //     { menu: 'Informações', icone: 'info' },
+  //   ],
+  // };
 
   ngOnInit(): void {
+    this.userService.getUserData().subscribe(
+      (response) => {
+        if (response) this.retornoAPI = response;
+      },
+      (error) => {
+        console.error('Error getting fake data array:', error);
+        //acao ao retornar erro
+      }
+    );
+
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = documentStyle.getPropertyValue('--text-color');
     this.data = {
-      labels: ['A', 'B'],
+      labels: ['Contribuição mensal', 'Contribuição voluntária'],
       datasets: [
         {
-          data: [499999.99, 499999.99],
+          data: [
+            this.retornoAPI.valorGraficoContribuicaoMensal,
+            this.retornoAPI.valorGraficoContribuicaoVoluntaria,
+          ],
           backgroundColor: [
             documentStyle.getPropertyValue('--blue-500'),
             documentStyle.getPropertyValue('--red-500'),
@@ -56,7 +73,12 @@ export class DashComponent implements OnInit {
           position: 'bottom',
           labels: {
             color: textColor,
+            textAlign: 'center',
+            pointStyle: 'circle',
           },
+        },
+        tooltip: {
+          usePointStyle: true,
         },
       },
     };
@@ -68,6 +90,9 @@ export class DashComponent implements OnInit {
 
   redirect(param: string) {
     switch (param) {
+      case 'Dash':
+        this.router.navigate(['/dash']);
+        break;
       case 'Ver Extrato':
         // this.router.navigate(['/extrato']);
         break;
