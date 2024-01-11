@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dash',
@@ -9,7 +10,7 @@ export class DashComponent implements OnInit {
   data: any;
 
   options: any;
-  constructor() {}
+  constructor(private router: Router) {}
 
   retornoAPI = {
     total: 1000,
@@ -35,23 +36,24 @@ export class DashComponent implements OnInit {
       labels: ['A', 'B'],
       datasets: [
         {
-          data: [300, 50],
+          data: [499999.99, 499999.99],
           backgroundColor: [
             documentStyle.getPropertyValue('--blue-500'),
-            documentStyle.getPropertyValue('--yellow-500'),
+            documentStyle.getPropertyValue('--red-500'),
           ],
           hoverBackgroundColor: [
             documentStyle.getPropertyValue('--blue-400'),
-            documentStyle.getPropertyValue('--yellow-400'),
+            documentStyle.getPropertyValue('--red-400'),
           ],
         },
       ],
     };
 
     this.options = {
-      cutout: '60%',
+      cutout: '70%',
       plugins: {
         legend: {
+          position: 'bottom',
           labels: {
             color: textColor,
           },
@@ -61,7 +63,21 @@ export class DashComponent implements OnInit {
   }
 
   getIconPath(fileName: string): string {
-    // Supondo que o arquivo esteja em uma pasta chamada "assets/images"
     return `assets/icons/${fileName}.png`;
+  }
+
+  redirect(param: string) {
+    switch (param) {
+      case 'Ver Extrato':
+        // this.router.navigate(['/extrato']);
+        break;
+
+      case 'Contribuição Mensal':
+        // this.router.navigate(['/contribuicao-mensal']);
+        break;
+
+      default:
+        break;
+    }
   }
 }

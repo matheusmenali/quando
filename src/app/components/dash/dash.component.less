@@ -1,14 +1,30 @@
 @primary-color: #1aaab2;
 
+.navigation {
+  display: flex;
+  align-items: center;
+  font-family: sans-serif;
+  margin: 17px 0 0 0px;
+  span {
+    margin-left: 8px;
+  }
+}
+
 .main {
   display: flex;
-  margin: 16px 24px 32px 24px;
+  flex-direction: column;
 
   .graph {
     text-align: center;
+    display: flex;
+    flex-direction: column;
 
     .graph-card {
       border: none;
+      width: 250px !important;
+      display: block;
+      margin: 0 auto;
+      margin-top: 16px;
     }
   }
 
@@ -16,7 +32,6 @@
     padding: 16px;
 
     .title {
-      margin-bottom: 8px;
       .pi-chevron-right {
         float: right;
         color: @primary-color;
@@ -64,6 +79,7 @@
       text-align: start;
       justify-content: space-between;
       margin: 16px 0;
+      cursor: pointer;
 
       :hover {
         color: @primary-color;
@@ -82,13 +98,15 @@
 }
 
 @media screen and (max-width: 767px) {
-  //   .main {
-  //     // margin: none;
-  //   }
+  .main {
+    max-width: 360px;
+    margin: 0 auto;
+  }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
   .main {
-    margin: 64px 60px 64px 90px;
+    max-width: 752px;
+    margin: 0 auto;
   }
 }
