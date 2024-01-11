@@ -1,1 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+@primary-color: #1aaab2;
+
+.btn-primary {
+  width: 312px;
+  height: 40px;
+  background-color: @primary-color !important;
+  border-color: @primary-color !important;
+  border-radius: 4px !important;
+  font-family: "Poppins", sans-serif !important;
+  padding: 0px;
+  border: 1px;
+  text-transform: uppercase;
+  font-weight: 700 !important;
+}
+
+.btn-secondary {
+  width: 312px;
+  height: 40px;
+  background-color: white !important;
+  border-color: white !important;
+  color: @primary-color !important;
+  border-radius: 4px !important;
+  font-family: "Poppins", sans-serif !important;
+  padding: 0px;
+  border: 1px;
+  text-transform: uppercase;
+  font-weight: 700 !important;
+}
+
+a {
+  text-decoration: none !important;
+  color: @primary-color!important;
+}
+
+b {
+  font-weight: 700;
+}
+
+p,
+span {
+  font-family: "Poppins", sans-serif;
+  line-height: 17.5px;
+  text-align: center;
+  font-size: 14px;
+  color: #464646;
+}
+
+.content-form {
+  .p-input-icon-right {
+    width: 100%;
+    input {
+      width: 100%;
+    }
+  }
+}
+
+.text-title {
+  font-weight: 600;
+  line-height: 20px;
+  font-size: 16px;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.container {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  line-height: 17.5px;
+  text-align: center;
+  font-size: 14px;
+  color: #464646;
+}
+
+@media screen and (max-width: 767px) {
+  #hide-on-mobile {
+    display: none;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .btn-primary {
+    width: 100%;
+  }
+}
