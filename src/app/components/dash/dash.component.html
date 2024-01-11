@@ -1,6 +1,26 @@
 <div class="row">
   <div class="col-xs-0 col-sm-12 col-md-5" id="hide-on-mobile">
-    kasjhdfbkasdj
+    <section class="my-plan">
+      <div class="cardPhoto t-center">
+        <img src="assets/icons/address-card.png" width="50" alt="" />
+        <br />
+        <span class="text-title">Meu plano</span>
+        <p>O que você quer fazer ?</p>
+      </div>
+      <div class="content">
+        <ul>
+          <li *ngFor="let item of retornoAPI.menuPlano">
+            <div class="contract">
+              <div class="text">
+                <img [src]="getIconPath(item.icone)" alt="" />{{ item.menu }} -
+              </div>
+              <i class="pi pi-chevron-right"></i>
+            </div>
+            <p-divider></p-divider>
+          </li>
+        </ul>
+      </div>
+    </section>
   </div>
   <div class="col-xs-12 col-sm-12 col-md-7">
     <content class="main">
@@ -8,7 +28,11 @@
         <section class="graph">
           <div class="total-value">
             Total em contribuições <br />
-            R{{ retornoAPI.total | currency }}
+            <b>
+              <span class="value">{{
+                retornoAPI.total | currency : "BRL"
+              }}</span>
+            </b>
           </div>
           <div class="card flex justify-content-center graph-card">
             <p-chart
@@ -19,7 +43,7 @@
           </div>
         </section>
 
-        <div class="section-divider"></div>
+        <p-divider></p-divider>
 
         <section class="month-contribution">
           <div class="card">
@@ -28,15 +52,25 @@
               Contribuição mensal
               <i class="pi pi-chevron-right"></i>
             </div>
-            <div class="divider"></div>
+            <p-divider></p-divider>
+
             <div class="content">
               Valor da contribuição
-              <span>50</span>
+              <b>
+                <span>{{
+                  retornoAPI.valorContribuiaoMensal | currency : "BRL"
+                }}</span>
+              </b>
               <br />
-              Porcentagem do salário <span>5%</span>
-              <button type="submit" class="btn btn-secondary">
-                alterar contribuição
-              </button>
+              Porcentagem do salário
+              <b>
+                <span>{{ retornoAPI.porcentagemSalario }}%</span>
+              </b>
+              <div class="btns">
+                <button type="submit" class="btn btn-secondary">
+                  alterar contribuição
+                </button>
+              </div>
             </div>
           </div>
         </section>
@@ -47,13 +81,19 @@
               <i class="pi pi-database"></i>
               Contribuição voluntária <i class="pi pi-chevron-right"></i>
             </div>
-            <div class="divider"></div>
+            <p-divider></p-divider>
             <div class="content">
-              Valor da contribuição
-              <span>50</span>
-              <button type="submit" class="btn btn-secondary">
-                alterar contribuição
-              </button>
+              <div class="text">
+                Valor da contribuição
+                <b>
+                  <span>{{
+                    retornoAPI.valorContribuiaoVoluntaria | currency : "BRL"
+                  }}</span>
+                </b>
+              </div>
+              <div class="btns">
+                <button class="btn btn-secondary">alterar contribuição</button>
+              </div>
             </div>
           </div>
         </section>

@@ -13,6 +13,19 @@ export class DashComponent implements OnInit {
 
   retornoAPI = {
     total: 1000,
+    valorContribuiaoMensal: 500,
+    porcentagemSalario: 5,
+    valorContribuiaoVoluntaria: 500,
+    menuPlano: [
+      { menu: 'Ver Extrato', icone: 'file-invoice-dollar' },
+      { menu: 'Contribuição Mensal', icone: 'envelope-open-dollar' },
+      { menu: 'Contribuição Extra', icone: 'sack-dollar' },
+      { menu: 'Documentos', icone: 'file-alt' },
+      { menu: 'Regime de Tributação', icone: 'user-chart' },
+      { menu: 'Solicitar Benefício', icone: 'comment-dollar' },
+      { menu: 'Extrato Regressivo', icone: 'file-chart-line' },
+      { menu: 'Informações', icone: 'info' },
+    ],
   };
 
   ngOnInit(): void {
@@ -45,5 +58,10 @@ export class DashComponent implements OnInit {
         },
       },
     };
+  }
+
+  getIconPath(fileName: string): string {
+    // Supondo que o arquivo esteja em uma pasta chamada "assets/images"
+    return `assets/icons/${fileName}.png`;
   }
 }

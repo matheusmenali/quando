@@ -1,4 +1,5 @@
-// @import "src/styles.less";
+@primary-color: #1aaab2;
+
 .main {
   display: flex;
   margin: 16px 24px 32px 24px;
@@ -13,25 +14,70 @@
 
   .card {
     padding: 16px;
+
     .title {
       margin-bottom: 8px;
       .pi-chevron-right {
         float: right;
-        // color: @primary-color;
+        color: @primary-color;
       }
     }
-  }
 
-  .divider {
-    border: 1px solid gray;
-  }
-  .section-divider {
-    border: 1px solid gray;
-    margin: 16px 0px;
+    .content {
+      .text {
+        margin-bottom: 8px;
+      }
+      .btns {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    span {
+      float: right;
+    }
   }
 
   section {
     margin-bottom: 16px;
+  }
+}
+
+.my-plan {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 16px;
+
+  img {
+    margin-bottom: 8px;
+  }
+
+  .content {
+    ul {
+      list-style-type: none;
+      padding-left: 0rem !important;
+    }
+
+    .contract {
+      display: flex;
+      align-items: center;
+      text-align: start;
+      justify-content: space-between;
+      margin: 16px 0;
+
+      :hover {
+        color: @primary-color;
+      }
+
+      .text {
+        display: flex;
+        align-items: center;
+
+        img {
+          margin-right: 8px;
+        }
+      }
+    }
   }
 }
 
